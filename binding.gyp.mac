@@ -1,0 +1,135 @@
+{  
+  'targets': [
+    {
+      'target_name': 'svmpredict',
+      'sources': [
+	     #'src/svmpredict-node.cpp',
+       'src/svm-predict.cpp',
+	     'src/svm.cpp'
+      ],
+      'include_dirs': [
+        'include'
+      ],
+      'cflags!': [
+        '-fno-exceptions'
+      ],
+      'cflags_cc+': [
+        '-fno-exceptions',
+        '-fpermissive',
+        '-std=c++11'
+      ],
+      'linkflags':[
+        '-v'
+      ],
+      'link_settings':{
+         'libraries': [
+             '-lm',
+             '-lstdc++'
+         ],
+         'library_dirs': []
+      },
+      'conditions': [
+        ['OS=="mac"', {
+          'xcode_settings': {
+            'MACOSX_DEPLOYMENT_TARGET':'10.8',
+            'GCC_ENABLE_CPP_EXCEPTIONS':'YES',
+            'OTHER_CPLUSPLUSFLAGS' : ['-std=c++11','-stdlib=libc++'],
+            'OTHER_LDFLAGS': ['-stdlib=libc++']
+          },
+          'cflags_cc+': [
+            '-fno-exceptions',
+            '-std=c++11'
+          ],
+          'include_dirs': [
+            '/Users/dave/apps/node/deps/v8/src'
+          ],
+          'libraries': [
+            # TODO: fix node-gyp behavior that requires ../
+          ],
+        }],
+        ['OS=="linux"', {
+          'cflags': [
+            #'<!@(pkg-config --cflags QtCore QtGui QtTest)'
+          ],
+          'cflags!': ['-fno-tree-vrp'],
+          'ldflags': [
+            #'<!@(pkg-config --libs-only-L --libs-only-other QtCore QtGui QtTest)'
+          ],
+          'include_dirs': [
+            '/opt/web/node/deps/v8/src'
+          ],
+          'libraries': [
+            #'<!@(pkg-config --libs-only-l QtCore QtGui QtTest)'
+          ]
+        }]
+      ]
+    },
+    {
+      'target_name':'aaproperties',
+      'sources': [
+          'src/feature.cpp'
+       ],
+      'include_dirs': [
+        'include'
+      ],
+      'cflags': [
+        '-std=c++11'
+      ],
+      'cflags!': [
+        '-fno-exceptions'
+      ],
+      'cflags_cc+': [
+        '-fno-exceptions',
+        '-std=c++11'
+      ],
+      'linkflags':[
+        '-v'
+      ],
+      'link_settings':{
+         'libraries': [
+             '-lm',
+             '-lstdc++'
+         ],
+         'library_dirs': []
+      },
+      'conditions': [
+        ['OS=="mac"', {
+          'xcode_settings': {
+            'MACOSX_DEPLOYMENT_TARGET':'10.8',
+            'GCC_ENABLE_CPP_EXCEPTIONS':'YES',
+            'OTHER_CPLUSPLUSFLAGS' : ['-std=c++11','-stdlib=libc++'],
+            'OTHER_LDFLAGS': ['-stdlib=libc++']
+          },
+          'cflags_cc+': [
+            '-std=c++11',
+            '-stdlib=libc++' 
+          ],
+          'include_dirs': [
+            '/Users/dave/apps/node/deps/v8/src'
+          ],
+          'libraries': [
+            # TODO: fix node-gyp behavior that requires ../
+          ],
+        }],
+        ['OS=="linux"', {
+          'cflags': [
+            #'<!@(pkg-config --cflags QtCore QtGui QtTest)'
+          ],
+          
+          'ldflags': [
+            #'<!@(pkg-config --libs-only-L --libs-only-other QtCore QtGui QtTest)'
+          ],
+          'include_dirs': [
+            '/opt/web/node/deps/v8/src'
+          ],
+          'libraries': [
+            #'<!@(pkg-config --libs-only-l QtCore QtGui QtTest)'
+          ]
+        }],
+        ['clang==0 and gcc_version>=44',{
+          'cflags!': ['-fno-tree-vrp'],
+        }]
+      ]
+    }
+  ]
+}

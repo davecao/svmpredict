@@ -1,0 +1,1 @@
+cmd_Release/obj.target/aaproperties.node := flock ./Release/linker.lock g++ -shared -pthread -rdynamic -m64  -Wl,-soname=aaproperties.node -o Release/obj.target/aaproperties.node -Wl,--start-group Release/obj.target/aaproperties/src/feature.o -Wl,--end-group -lm -lstdc++

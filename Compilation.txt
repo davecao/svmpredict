@@ -1,0 +1,5 @@
+# Compilation
+node-gyp configure rebuild -v --nodedir=/opt/web/node
+
+# test
+node test/aaproperties.js

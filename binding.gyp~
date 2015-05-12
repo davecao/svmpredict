@@ -1,0 +1,107 @@
+{  'make_global_settings': [
+    ['CXX','/usr/local/bin/clang++'],
+    ['LINK','/usr/local/bin/clang++']
+   ],
+  'targets': [
+    {
+      'target_name': 'svmpredict',
+      'sources': [
+	     #'src/svmpredict-node.cpp',
+        'src/svm-predict.cpp',
+	      'src/svm.cpp'
+      ],
+      'include_dirs': [
+        'include'
+      ],
+      'cflags!': [
+        '-fno-exceptions'        
+      ],
+      'cflags_cc+': [
+        '-fno-exceptions',
+        '-std=c++11'
+      ],
+      'linkflags':[
+        '-v'
+      ],
+      'link_settings':{
+         'libraries': [
+             '-lm',
+             '-lstdc++'
+         ],
+         'library_dirs': []
+      },
+      'conditions': [
+        ['OS=="mac"', {
+          'xcode_settings': {
+             'GCC_ENABLE_CPP_EXCEPTIONS':'YES'
+          },
+          'include_dirs': [
+          ],
+          'libraries': [
+            # TODO: fix node-gyp behavior that requires ../
+          ],
+        }],
+        ['OS=="linux"', {
+          'cflags': [
+            #'<!@(pkg-config --cflags QtCore QtGui QtTest)'
+          ],
+          'ldflags': [
+            #'<!@(pkg-config --libs-only-L --libs-only-other QtCore QtGui QtTest)'
+          ],
+          'libraries': [
+            #'<!@(pkg-config --libs-only-l QtCore QtGui QtTest)'
+          ]
+        }]
+      ]
+    },
+    {
+      'target_name':'aaproperties',
+      'sources': [
+          'src/feature.cpp'
+       ],
+      'include_dirs': [
+        'include'
+      ],
+      'cflags!': [
+        '-fno-exceptions'        
+      ],
+      'cflags_cc+': [
+        '-fno-exceptions',
+        '-std=c++11'
+      ],
+      'linkflags':[
+        '-v'
+      ],
+      'link_settings':{
+         'libraries': [
+             '-lm',
+             '-lstdc++'
+         ],
+         'library_dirs': []
+      },
+      'conditions': [
+        ['OS=="mac"', {
+          'xcode_settings': {
+             'GCC_ENABLE_CPP_EXCEPTIONS':'YES'
+          },
+          'include_dirs': [
+          ],
+          'libraries': [
+            # TODO: fix node-gyp behavior that requires ../
+          ],
+        }],
+        ['OS=="linux"', {
+          'cflags': [
+            '<!@(pkg-config --cflags QtCore QtGui QtTest)'
+          ],
+          'ldflags': [
+            '<!@(pkg-config --libs-only-L --libs-only-other QtCore QtGui QtTest)'
+          ],
+          'libraries': [
+            #'<!@(pkg-config --libs-only-l QtCore QtGui QtTest)'
+          ]
+        }]
+      ]
+    }
+  ]
+}

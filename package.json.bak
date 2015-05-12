@@ -1,0 +1,27 @@
+{
+  "name": "svmpredict",
+  "version": "0.0.1",
+  "author": "Wei Cao <caotiger@gmail.com>",
+  "description": "SVM predict bindings for Node.js",
+  #"repository": {
+  #  "type": "git",
+  #  "url": "git://github.com/arturadib/node-qt.git"
+  #},
+  #"homepage": "http://github.com/arturadib/node-qt",
+  "main": "./lib/qt.js",
+  "keywords": [
+    "support vector",
+    "machine learning",
+	],
+  "engines": {
+    "node": ">=0.8"
+  },
+  #"dependencies": {
+  #  "shelljs": "0.0.5pre4"
+  #},
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

@@ -1,0 +1,1 @@
+cmd_Release/obj.target/svmpredict.node := flock ./Release/linker.lock g++ -shared -pthread -rdynamic -m64  -Wl,-soname=svmpredict.node -o Release/obj.target/svmpredict.node -Wl,--start-group Release/obj.target/svmpredict/src/svm-predict.o Release/obj.target/svmpredict/src/svm.o -Wl,--end-group -lm -lstdc++
