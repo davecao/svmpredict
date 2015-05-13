@@ -45,6 +45,10 @@
       # different variables. The common use of a condition section in the top-level
       # dictionary is to add platform-specific targets to the targets list.
       ['OS=="mac"', {
+        'variables':{
+          'mac_sdk_min%':'10.8',
+          'mac_deployment_target':'10.8',
+        },
         'xcode_settings': {
           'ALWAYS_SEARCH_USER_PATHS':'YES',
           'GCC_C_LANGUAGE_STANDARD': 'c99',         # -std=c99
