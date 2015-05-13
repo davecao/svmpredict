@@ -29,10 +29,10 @@
         #},
       },
       'Release' : {
-        'xcode_settings' : {
+        #'xcode_settings' : {
           # It will not work if set this in the following 'conditions'
-          'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
-        }
+        #  'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
+        #}
       }
     },
     'include_dirs' : [
