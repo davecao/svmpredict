@@ -321,8 +321,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /opt/web/node/deps/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/home/davecao/Desktop/svmpredict/build/config.gypi -I/opt/web/node/deps/npm/node_modules/node-gyp/addon.gypi -I/opt/web/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/opt/web/node" "-Dmodule_root_dir=/home/davecao/Desktop/svmpredict" binding.gyp
-Makefile: $(srcdir)/../../../../opt/web/node/common.gypi $(srcdir)/../../../../opt/web/node/deps/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
+cmd_regen_makefile = cd $(srcdir); /opt/web/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/home/davecao/Desktop/svmpredict/build/config.gypi -I/opt/web/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/opt/web/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/opt/web/node" "-Dmodule_root_dir=/home/davecao/Desktop/svmpredict" binding.gyp
+Makefile: $(srcdir)/../../../../opt/web/node/common.gypi $(srcdir)/../../../../opt/web/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included

@@ -2,7 +2,7 @@
   "name": "svmpredict",
   "version": "0.0.1",
   "author": "Wei Cao <caotiger@gmail.com>",
-  "description": "SVM predict bindings for Node.js",
+  "description": "LibSVM predict bindings for Node.js",
   "license":"BSD",
   "main": "./lib/svm.js",
   "keywords": [
@@ -13,7 +13,7 @@
     "node": ">=0.8"
   },
   "scripts": {
-    "install": "node-gyp rebuild -v --nodedir=/opt/web/node"
+    "install": "node-gyp rebuild -v "
   },
   "devDependencies": {},
   "optionalDependencies": {}
