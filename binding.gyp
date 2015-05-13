@@ -29,12 +29,13 @@
         #},
       },
       'Release' : {
-        #'xcode_settings' : {
+        ['OS=="mac"', {
+          'xcode_settings' : {
           # It will not work if set this in the following 'conditions'
-        #  'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
-        #}
-      }
-    },
+          'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
+          }
+       }]
+     },
     'include_dirs' : [
       'include',
       '<(node_root_dir)/deps/v8/include'
@@ -64,8 +65,8 @@
           'PREBINDING': 'NO',                       # No -Wl,-prebind
 
           # -mmacosx-version-min=10.5
-          #'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
-          'MACOSX_DEPLOYMENT_TARGET':'10.8',
+          'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
+          #'MACOSX_DEPLOYMENT_TARGET':'10.8',
           'USE_HEADERMAP': 'NO',
 
           'GCC_OPTIMIZATION_LEVEL': '3',  # -O3     # optimize -O3
