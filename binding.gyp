@@ -2,15 +2,17 @@
   'variables':{
     # Definiton of variables that can be interpolated and used in various
     # other parts of the file.
-    'conditions': [
-      ['OS == "mac"', {
-        'mac_sdk_min%':'10.8',
-        'mac_deployment_target':'10.8',
-      }],
-      ['OS =="linux"',{
-      },
-      {}]
-    ],
+#    'conditions': [
+#      ['OS == "mac"', {
+#        'mac_sdk_min%':'10.8',
+#        'mac_deployment_target':'10.8',
+#      }],
+#      ['OS =="linux"',{
+#      },
+#      {}]
+#    ],
+    'mac_sdk_min%':'10.8',
+    'mac_deployment_target':'10.8',
   },
   'includes':[
     # include other gyp settings suffix .gypi
@@ -45,10 +47,6 @@
       # different variables. The common use of a condition section in the top-level
       # dictionary is to add platform-specific targets to the targets list.
       ['OS=="mac"', {
-        'variables':{
-          'mac_sdk_min%':'10.8',
-          'mac_deployment_target':'10.8',
-        },
         'xcode_settings': {
           'ALWAYS_SEARCH_USER_PATHS':'YES',
           'GCC_C_LANGUAGE_STANDARD': 'c99',         # -std=c99
