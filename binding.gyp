@@ -29,13 +29,12 @@
         #},
       },
       'Release' : {
-        ['OS=="mac"', {
-          'xcode_settings' : {
+        'xcode_settings' : {
           # It will not work if set this in the following 'conditions'
           'MACOSX_DEPLOYMENT_TARGET':'<(mac_deployment_target)',
           }
-       }]
-     },
+       }
+    }, # configurations
     'include_dirs' : [
       'include',
       '<(node_root_dir)/deps/v8/include'
